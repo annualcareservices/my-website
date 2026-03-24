@@ -20,6 +20,11 @@ a {
     color: inherit;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 .container {
     width: 90%;
     max-width: 1120px;
@@ -34,7 +39,7 @@ a {
     z-index: 1000;
 }
 
-.site-header .container {
+.header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,6 +60,7 @@ a {
 .nav a {
     font-size: 15px;
     color: #374151;
+    font-weight: 600;
 }
 
 .nav a:hover {
@@ -68,8 +74,8 @@ a {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.3fr 0.9fr;
-    gap: 32px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 36px;
     align-items: center;
 }
 
@@ -87,6 +93,7 @@ a {
     line-height: 1.05;
     color: #111827;
     margin-bottom: 18px;
+    max-width: 700px;
 }
 
 .hero-copy {
@@ -100,6 +107,27 @@ a {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
+}
+
+.hero-email {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.hero-email a {
+    color: #111827;
+    text-decoration: underline;
+    word-break: break-word;
+}
+
+.hero-image-wrap img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 14px 34px rgba(17, 24, 39, 0.10);
 }
 
 .btn {
@@ -131,34 +159,6 @@ a {
 
 .btn-large {
     padding: 16px 24px;
-}
-
-.hero-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
-}
-
-.hero-card h2 {
-    font-size: 24px;
-    margin-bottom: 18px;
-    color: #111827;
-}
-
-.hero-card ul {
-    list-style: none;
-}
-
-.hero-card li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eef2f7;
-    color: #374151;
-}
-
-.hero-card li:last-child {
-    border-bottom: none;
 }
 
 .trust-strip {
@@ -212,6 +212,14 @@ a {
     box-shadow: 0 10px 24px rgba(17, 24, 39, 0.04);
 }
 
+.card-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+
 .card h3 {
     font-size: 22px;
     margin-bottom: 12px;
@@ -220,6 +228,15 @@ a {
 
 .card p {
     color: #4b5563;
+}
+
+.cta-card {
+    background: #eef3eb;
+    border: 1px solid #d6e0d0;
+}
+
+.cta-card .btn {
+    margin-top: 14px;
 }
 
 .about-grid {
@@ -271,6 +288,10 @@ a {
     align-items: center;
 }
 
+.cta-action {
+    flex-shrink: 0;
+}
+
 .site-footer {
     background: #111827;
     color: #d1d5db;
@@ -292,6 +313,7 @@ a {
 
 .site-footer a {
     color: #ffffff;
+    text-decoration: underline;
 }
 
 .footer-bottom {
@@ -304,15 +326,17 @@ a {
 @media (max-width: 900px) {
     .hero-grid,
     .about-grid,
-    .cta-box,
-    .footer-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
     .card-grid {
         grid-template-columns: 1fr;
-        display: grid;
     }
 
     .cta-box {
-        align-items: start;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .hero h1 {
@@ -323,6 +347,14 @@ a {
     .about-grid h2,
     .cta-box h2 {
         font-size: 30px;
+    }
+
+    .hero-image-wrap img {
+        height: 320px;
+    }
+
+    .card-photo {
+        height: 200px;
     }
 
     .nav {
