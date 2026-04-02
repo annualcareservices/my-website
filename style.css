@@ -8,10 +8,9 @@
     --brand: #2f6b45;
     --brand-dark: #234f34;
     --accent: #d8e7d8;
-    --shadow: 0 12px 40px rgba(21, 34, 23, 0.08);
+    --shadow: 0 14px 42px rgba(21, 34, 23, 0.08);
     --shadow-soft: 0 8px 24px rgba(21, 34, 23, 0.06);
     --radius: 20px;
-    --radius-sm: 14px;
     --container: 1180px;
 }
 
@@ -30,11 +29,16 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
+    text-rendering: optimizeLegibility;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+img {
+    max-width: 100%;
 }
 
 .container {
@@ -118,7 +122,7 @@ a {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 42px;
     align-items: center;
 }
@@ -135,7 +139,7 @@ a {
 
 .hero h1 {
     max-width: 760px;
-    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-size: clamp(2.4rem, 5vw, 4.3rem);
     line-height: 1.02;
     letter-spacing: -0.03em;
     margin-bottom: 18px;
@@ -207,14 +211,23 @@ a {
     gap: 18px;
 }
 
-.hero-panel-card,
+.hero-image-card,
 .hero-contact-card {
     background: rgba(255, 255, 255, 0.82);
     border: 1px solid rgba(221, 229, 220, 0.9);
     border-radius: var(--radius);
-    padding: 26px;
+    padding: 18px;
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(6px);
+}
+
+.hero-image {
+    width: 100%;
+    height: 440px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
 }
 
 .panel-label {
@@ -224,20 +237,6 @@ a {
     text-transform: uppercase;
     color: var(--brand);
     margin-bottom: 16px;
-}
-
-.service-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
-
-.service-list-item {
-    background: var(--surface-soft);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 14px 16px;
-    font-weight: 700;
 }
 
 .hero-email {
@@ -307,6 +306,63 @@ a {
     font-size: 1.03rem;
 }
 
+.service-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+.service-visual-card {
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.service-visual-card:hover,
+.featured-card:hover,
+.why-card:hover,
+.process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: rgba(47, 107, 69, 0.2);
+}
+
+.service-visual-image {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.service-visual-content {
+    padding: 24px;
+}
+
+.service-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--surface-soft);
+    color: var(--brand-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.service-visual-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.service-visual-content p:last-child {
+    color: var(--muted);
+}
+
 .featured-services {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -323,17 +379,9 @@ a {
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
-.featured-card:hover,
-.why-card:hover,
-.process-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-    border-color: rgba(47, 107, 69, 0.2);
-}
-
 .featured-card.large {
     grid-column: span 2;
-    min-height: 240px;
+    min-height: 220px;
 }
 
 .card-top-line {
@@ -546,6 +594,7 @@ a {
     }
 
     .stats-grid,
+    .service-feature-grid,
     .featured-services,
     .why-grid,
     .process-grid {
@@ -554,6 +603,10 @@ a {
 
     .featured-card.large {
         grid-column: span 2;
+    }
+
+    .hero-image {
+        height: 420px;
     }
 }
 
@@ -584,8 +637,8 @@ a {
         width: 100%;
     }
 
-    .service-list,
     .stats-grid,
+    .service-feature-grid,
     .featured-services,
     .why-grid,
     .process-grid,
@@ -605,5 +658,13 @@ a {
 
     .section {
         padding: 72px 0;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .service-visual-image {
+        height: 240px;
     }
 }
